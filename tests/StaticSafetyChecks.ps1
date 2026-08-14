@@ -29,8 +29,8 @@ if ($outputService -notmatch 'AppDomain\.CurrentDomain\.BaseDirectory') {
     throw 'OutputPathService must root all outputs at AppDomain.CurrentDomain.BaseDirectory.'
 }
 
-$exporter = Get-Content (Join-Path $sourceRoot 'Services\ExcelExporter.cs') -Raw
-if ($exporter -notmatch 'FileMode\.CreateNew') {
+$writer = Get-Content (Join-Path $sourceRoot 'Services\SimpleXlsxWriter.cs') -Raw
+if ($writer -notmatch 'FileMode\.CreateNew') {
     throw 'Excel export must use FileMode.CreateNew so existing files cannot be overwritten.'
 }
 
